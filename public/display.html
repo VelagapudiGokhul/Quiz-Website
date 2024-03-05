@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Created Sucessful</title>
+    <link rel="stylesheet" href="CSS/display.css">
+</head>
+<body>
+    
+    <header class="container">
+        <div class="page-header">
+            <div class="logo">
+                <a href="#">BrainBurst</a>
+            </div>
+            <input type="checkbox" id="click">
+            <label for="click" class="mainicon">
+                <div class="menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </label>
+            <ul>
+            <li><a href="home.html" class="active" style="--navAni:1">Home</a></li>
+            <li><a href="#" style="--navAni:2">About</a></li>
+            <li><a href="#" style="--navAni:3">History</a></li>
+            <li><a href="#" style="--navAni:5">Contact Us</a></li>
+        </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main">
+            <div class="detail">
+                <p>Your Quiz Was Sucessfully Created. <br>
+                    Access the quiz with the Quiz ID.
+                </p>
+                <br>
+                <h1><span style="color:#52489C;">Quiz ID:</span></h1>
+                <textarea id="quizIDContainer" readonly></textarea>
+                <img src="copy-clip.png" onclick="myFunction()" alt="Copy text" style="cursor: pointer;">        
+            </div>
+            <div class="images">
+                <img src="https://media.domatron.com/media/4969/conversions/quiz-game-yba-jpg.jpg" alt="" class="img-w">
+            </div>          
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const quizID = urlParams.get('quizID');
+        document.getElementById('quizIDContainer').innerText = quizID;
+
+        function myFunction() {
+            var copyText = document.getElementById("quizIDContainer");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); 
+            navigator.clipboard.writeText(copyText.value);
+            alert("Copied the text: " + copyText.value);
+          }
+    </script>
+
+</body>
+</html>
